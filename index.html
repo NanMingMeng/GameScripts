@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明梦脚本工具箱</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #161b22;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #58a6ff;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #8b949e;
+            margin-bottom: 24px;
+        }
+        .tool-section {
+            margin-bottom: 20px;
+        }
+        .tool-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #58a6ff;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #30363d;
+        }
+        .tool-item {
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .tool-name {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .tool-desc {
+            font-size: 13px;
+            color: #8b949e;
+            margin-bottom: 12px;
+        }
+        .code-block {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 12px;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .copy-btn {
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #30363d;
+            text-align: center;
+            font-size: 12px;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>明梦脚本工具箱</h1>
+        <div class="subtitle">Termux 游戏优化脚本合集</div>
+
+        <!-- 林羽驱动系列 -->
+        <div class="tool-section">
+            <div class="tool-title">林羽驱动系列</div>
+
+            <div class="tool-item">
+                <div class="tool-name">林羽驱动4.9</div>
+                <div class="tool-desc">Termux 一键执行脚本，优化游戏性能</div>
+                <div class="code-block" id="code1">
+su -M -c 'cd /data/adb && rm -rf linyu* && mkdir -p /data/adb && echo "[+] 开始下载林羽驱动4.9..." && /data/adb/ksu/bin/busybox wget --no-check-certificate -O LinYuDriver4.9.sh "https://gitee.com/MingMengFree/Games/raw/master/LinYuDriverLoader4.9.sh" && chmod 777 LinYuDriver4.9.sh && echo "[+] 执行中..." && ./LinYuDriver4.9.sh && echo "[+] 清理完成..." && rm -rf LinYuDriver4.9.sh'
+                </div>
+                <button class="copy-btn" onclick="copyCode('code1')">复制代码</button>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-name">林羽驱动5.1</div>
+                <div class="tool-desc">Termux 一键执行脚本，优化游戏性能</div>
+                <div class="code-block" id="code2">
+su -M -c 'cd /data/adb && rm -rf linyu* && mkdir -p /data/adb && echo "[+] 开始下载林羽驱动5.1..." && /data/adb/ksu/bin/busybox wget --no-check-certificate -O LinYuDriver5.1.sh "https://gitee.com/MingMengFree/Games/raw/master/LinYuDriverLoader5.1(1).sh" && chmod 777 LinYuDriver5.1.sh && echo "[+] 执行中..." && ./LinYuDriver5.1.sh && echo "[+] 清理完成..." && rm -rf LinYuDriver5.1.sh'
+                </div>
+                <button class="copy-btn" onclick="copyCode('code2')">复制代码</button>
+            </div>
+        </div>
+
+        <!-- 林羽内核系列 -->
+        <div class="tool-section">
+            <div class="tool-title">林羽内核系列</div>
+
+            <div class="tool-item">
+                <div class="tool-name">林羽内核3.0.0</div>
+                <div class="tool-desc">Termux 一键执行脚本，深度优化系统环境</div>
+                <div class="code-block" id="code3">
+su -M -c 'cd /data/adb && rm -rf kernel* && mkdir -p /data/adb && echo "[+] 开始下载林羽内核3.0.0..." && /data/adb/ksu/bin/busybox wget --no-check-certificate -O LinYuKernel3.0.0.sh "https://gitee.com/MingMengFree/Games/raw/master/LinYuKernel.Ver.3.0.0.sh" && chmod 777 LinYuKernel3.0.0.sh && echo "[+] 执行中..." && ./LinYuKernel3.0.0.sh && echo "[+] 清理完成..." && rm -rf LinYuKernel3.0.0.sh'
+                </div>
+                <button class="copy-btn" onclick="copyCode('code3')">复制代码</button>
+            </div>
+        </div>
+
+        <!-- 于焉脚本 -->
+        <div class="tool-section">
+            <div class="tool-title">于焉脚本工具箱</div>
+
+            <div class="tool-item">
+                <div class="tool-name">于焉91.0 分卷下载执行</div>
+                <div class="tool-desc">Termux 一键下载、合并、解压并执行于焉脚本</div>
+                <div class="code-block" id="code4">
+su -M -c 'cd /data/adb && rm -rf yuyan* && mkdir -p /data/adb && echo "[+] 开始下载于焉脚本..." && /data/adb/ksu/bin/busybox wget --no-check-certificate -O yuyan.zip.001 "https://gitee.com/MingMengFree/Games/raw/master/yuyan.zip.001" && /data/adb/ksu/bin/busybox wget --no-check-certificate -O yuyan.zip.002 "https://gitee.com/MingMengFree/Games/raw/master/yuyan.zip.002" && echo "[+] 合并中..." && cat yuyan.zip.* > yuyan.zip && echo "[+] 解压中..." && unzip -o yuyan.zip && chmod 777 "于嫣91.0.sh" && echo "[+] 执行中..." && ./"于嫣91.0.sh" && echo "[+] 清理完成..." && rm -rf yuyan* "于嫣91.0.sh"'
+                </div>
+                <button class="copy-btn" onclick="copyCode('code4')">复制代码</button>
+            </div>
+        </div>
+
+        <!-- 牛逼哥脚本 -->
+        <div class="tool-section">
+            <div class="tool-title">牛逼哥助手</div>
+
+            <div class="tool-item">
+                <div class="tool-name">功能3 三角洲深度清理</div>
+                <div class="tool-desc">自动运行脚本，执行清理优化</div>
+                <div class="code-block" id="code5">
+su -M -c 'cd /data/adb && rm -rf nbg* && mkdir -p /data/adb && echo "[+] 开始下载牛逼哥助手..." && /data/adb/ksu/bin/busybox wget --no-check-certificate -O nbgzxs.sh "https://gitee.com/MingMengFree/Games/raw/master/牛逼哥小助手.sh" && chmod 777 nbgzxs.sh && echo "[+] 自动执行功能3..." && echo "3" | ./nbgzxs.sh && echo "[+] 清理完成..." && rm -rf nbgzxs.sh'
+                </div>
+                <button class="copy-btn" onclick="copyCode('code5')">复制代码</button>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-name">功能4 设备ID修改伪装</div>
+                <div class="tool-desc">自动运行脚本，修改设备标识</div>
+                <div class="code-block" id="code6">
+su -M -c 'cd /data/adb && rm -rf nbg* && mkdir -p /data/adb && echo "[+] 开始下载牛逼哥助手..." && /data/adb/ksu/bin/busybox wget --no-check-certificate -O nbgzxs.sh "https://gitee.com/MingMengFree/Games/raw/master/牛逼哥小助手.sh" && chmod 777 nbgzxs.sh && echo "[+] 自动执行功能4..." && echo "4" | ./nbgzxs.sh && echo "[+] 清理完成..." && rm -rf nbgzxs.sh'
+                </div>
+                <button class="copy-btn" onclick="copyCode('code6')">复制代码</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            ⚠️ 免责声明：本站工具仅用于设备环境优化、系统清理，不涉及任何游戏数据修改或外挂行为，使用风险由用户自行承担。
+        </div>
+    </div>
+
+    <script>
+        function copyCode(id) {
+            const codeBlock = document.getElementById(id);
+            const text = codeBlock.textContent.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                alert("代码已复制到剪贴板！");
+            }).catch(err => {
+                alert("复制失败，请手动复制");
+            });
+        }
+    </script>
+</body>
+</html>
