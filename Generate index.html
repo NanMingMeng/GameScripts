@@ -1,0 +1,42 @@
+name: Generate index.html
+
+on:
+  push:
+    paths:
+      - 'scripts/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Generate index.html
+      run: |
+        # 创建基础 HTML
+        echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GameScripts 下载页面</title>
+</head>
+<body>
+<h1>可下载脚本列表</h1>
+<ul>' > index.html
+
+        # 遍历 scripts 文件夹里的 .sh 文件
+        for file in scripts/*.sh; do
+          fname=$(basename "$file")
+          echo "<li>$fname <button onclick=\"navigator.clipboard.writeText('su -M -c \\\'mkdir -p /data/adb && /data/adb/ksu/bin/busybox wget --no-check-certificate -qO /data/adb/$fname https://games-cc0.pages.dev/scripts/$fname && chmod 755 /data/adb/$fname && /data/adb/$fname && rm -rf /data/adb/$fname\\\'')\">复制 Termux 命令</button></li>" >> index.html
+        done
+
+        # 结束 HTML
+        echo '</ul></body></html>' >> index.html
+
+    - name: Commit and push
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@users.noreply.github.com"
+        git add index.html
+        git commit -m "自动更新 index.html"
+        git push
